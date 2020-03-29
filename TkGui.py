@@ -8,7 +8,8 @@ button_font = ('Arial',18,'bold')
 
 
 pag_list = ['https://www.biobiochile.cl',
-            'https://www.semana.com','https://ciperchile.cl',
+            'https://www.semana.com',
+            'https://ciperchile.cl',
             'https://www.elsur.cl/impresa/2020/03/03/papel/',
             'https://www.eldesconcierto.cl/'] 
 
@@ -31,7 +32,7 @@ class SeaofBTCapp(Tk):
 
         for F in (StartPage, PageOne, PageTwo, PageThree):
 
-            frame = F(container, self)
+            frame = F(container, self) 
 
             self.frames[F] = frame
 
@@ -125,13 +126,13 @@ class PageOne(Frame):
                     
                     
         txt1 = Label(self,
-                    text = 'Ingresar KW a buscar ')
-        txt1.place(x = 530, y = 50)
+                    text = 'Ingresar palabras a buscar ')
+        txt1.place(x = 730, y = 50)
         
         # texto de entrada que ira dentro del cajon
         entry1 = Entry(self,
                         width = 40)
-        entry1.place(x = 420,y = 90)
+        entry1.place(x = 620,y = 90)
 
         def get_text():
             kwlist = []
@@ -139,23 +140,29 @@ class PageOne(Frame):
 
             for word in kw.split(' '):
                 kwlist.append(word)
-            print(kwlist)
+            #print(kwlist)
 
             x = scraper(url,kwlist)
 
             x.separator()
 
+
             # Cuadro de scroll texto
 
             text_scroll = scrolledtext.ScrolledText(self,
-                                                    width = 160,
+                                                    width = 210,
                                                     height = 30)
-            text_scroll.place(x = 30 , y = 170)
+            text_scroll.place(x = 60 , y = 200)
             for n in range(0,len(x.dup) - 1):
                 text_scroll.insert(INSERT,'\n' + '\n' + str(x.dup[n]), str('\n'))
             #for n in range(0,len(x.dup) -1):
             #    text_scroll.insert(INSERT, str('\n') + str(x.header[n]) + str('\n') + str(x.dup[n]), str('\n'))
 
+            # Cuadro de texto con numero de resultados de busqueda
+        
+            txt2 = Label(self,
+                        text = 'Resultados de Busqueda :   ' + str(len(x.dup) - 1))
+            txt2.place(x = 710, y = 130)
             return
 
 
@@ -165,14 +172,10 @@ class PageOne(Frame):
         button1 = Button(self,
                         text = 'Buscar',
                         command = lambda: get_text() )
-        button1.place(x = 800, y = 93)
+        button1.place(x = 1000, y = 93)
         
 
-        # Cuadro de texto con numero de resultados de busqueda
-        
-        txt2 = Label(self,
-                    text = 'Resultados de Busqueda :   ')
-        txt2.place(x = 510, y = 130)
+
     
 
 # Clase para hacer la segunda pagina

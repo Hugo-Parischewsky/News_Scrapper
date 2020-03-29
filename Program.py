@@ -4,8 +4,13 @@ from TkGui import *
 from tkinter import *
 
 
+#url = ['https://www.biobiochile.cl',
+#      'https://www.semana.com',
+#      'https://ciperchile.cl',
+#      'https://www.elsur.cl/impresa/2020/03/03/papel/',
+#      'https://www.eldesconcierto.cl/']
 
-
+#kw_list = ['carabineros']
 
 
 if __name__ == '__main__':
@@ -22,7 +27,18 @@ if __name__ == '__main__':
     #print(len(x.duplicate()))
 
 
-    
     app = SeaofBTCapp()
-    app.geometry('1200x800')
+    app.geometry('1600x800')
     app.mainloop()
+
+    #x = scraper(url, kw_list)
+    #x.separator()
+
+    #for n in range(0,len(x.dup) - 1):
+    #    print('\n' + '\n' + str(x.dup[n]), str('\n'))
+    
+    #for link in x.lista_final:
+    #    print(link)
+
+    #for link in x.dup:
+    #    print(link)

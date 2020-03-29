@@ -25,6 +25,7 @@ class scraper:
         self.lista_links = []
         self.dup = []
         self.header = []
+        self.lista_final = []
 
 
 
@@ -35,13 +36,14 @@ class scraper:
             f = soup.find_all('a')
             for href in f:
                 a = href.get('href')
-#                print(a)
+                #print(a)
                 if isinstance(a,str):
-#                print(a)
+                    #print(a)
                     if len(a.split('https')) > 1:
-                        if len(a.split('/')) > 6:
+                        #print(a)
+                        if len(a.split('-')) > 5:
                             for word in self.kw:
-                                if a.find(str(word)) != 1:
+                                if a.find(str(word)) != -1:
                                     self.lista_links.append(a)
 
         return self.lista_links
@@ -74,6 +76,8 @@ class scraper:
             x1 = x1.replace('-',' ')
             self.header.append(x1)
         return self.header
+
+
 
 
 
