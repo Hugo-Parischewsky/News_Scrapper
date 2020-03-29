@@ -1,6 +1,6 @@
 from Scrap import *
 from TkGui import *
-
+import webbrowser
 from tkinter import *
 
 
